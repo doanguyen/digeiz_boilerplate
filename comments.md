@@ -1,0 +1,3 @@
+- Enforce coding style, static typing (i.e. mypy)
+- Use dependency locking mechanism for separating dev/prod
+- For pagination: Limit-offset pagination/Cursor pagination
