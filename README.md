@@ -1,4 +1,4 @@
-.. --------------------------------License Notice----------------------------------
+-------------------------------License Notice----------------------------------
 .. Python Project Boilerplate - A boilerplate project for python packages
 ..
 .. Written in 2020 by Francesco Perna

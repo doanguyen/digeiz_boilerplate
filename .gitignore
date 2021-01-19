@@ -1,0 +1,6 @@
+.coverage
+.tox
+.mypy_cache
+.idea
+__pycache__
+test_api.db

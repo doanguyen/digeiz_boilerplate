@@ -5,13 +5,13 @@ from flask.views import MethodView
 
 
 def register_api(
-        app: Flask,
-        view: Type[MethodView],
-        endpoint: str,
-        url: str,
-        pk: Optional[str] = None,
-        pk_type: Optional[str] = None,
-        methods: Optional[List[str]] = None,
+    app: Flask,
+    view: Type[MethodView],
+    endpoint: str,
+    url: str,
+    pk: Optional[str] = None,
+    pk_type: Optional[str] = None,
+    methods: Optional[List[str]] = None,
 ):
     """Syntactic sugar for registering multiple API endpoints.
     Taken from: https://flask.palletsprojects.com/en/1.1.x/views/
@@ -26,4 +26,9 @@ def register_api(
     if not methods:
         methods = ["GET", "PUT", "PATCH", "POST", "DELETE"]
     view_func = view.as_view(endpoint)
-    app.add_url_rule(url, view_func=view_func, methods=methods)
+    if pk:
+        app.add_url_rule(
+            "%s<%s:%s>" % (url, pk_type, pk), view_func=view_func, methods=methods
+        )
+    else:
+        app.add_url_rule(url, view_func=view_func, methods=methods)
